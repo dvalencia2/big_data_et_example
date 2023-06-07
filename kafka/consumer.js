@@ -2,9 +2,11 @@ const Kafka = require("node-rdkafka");
 const { readConfigFile } = require("./helper");
 const config = readConfigFile("creds.txt");
 config["group.id"] = "node-group";
-var io = require("socket.io-client");
 
-const socket = io("ws://localhost:3000");
+//io configs are for next week
+//var io = require("socket.io-client");
+
+//const socket = io("ws://localhost:3000");
 
 // send a message to the server
 
@@ -21,5 +23,5 @@ consumer.on("ready", () => {
         value: message.value.toString(),
     }
     console.log("Consumed message", JSON.stringify(data));
-    socket.emit("consumerDataEvent",JSON.stringify(data));
+    //socket.emit("consumerDataEvent",JSON.stringify(data));
 });
