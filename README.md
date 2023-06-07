@@ -12,3 +12,18 @@ This project is going to be built alongside San Joaquin DUOC UC's Big Data cours
 - Mongo DB to store incoming data from the consumer to the SOCKET IO server
 - Client built with React js to showcase live data from "kafka -> socket io" and also historical data from "webserver API (node) -> Mongo DB)
 
+
+
+
+## FAQ
+
+#### Why was this project built without any ENV variable or best practice in mind?
+
+In general the project aims to serve to purpose of building the architechture rather than applying best SE practices, however, overtime better practices will be added, and PR are welcome.
+
+#### What services do I need to subscribe to to be able to run this on my local machine?
+
+- Clonfluent for kafka cloud implementation, 30 days free (or use local kafka installation) https://www.confluent.io/
+- Mongo db cloud Atlas for free cloud mongo db storage https://cloud.mongodb.com/
+
+
