@@ -7,16 +7,18 @@ const http = require('http');
 const server = http.createServer(app);
 
 //shouldn't be seen this week yet.
-/*
+
 const io = require("socket.io")(server, {
     cors: {
       origin: "*"
     }
   });
-*/
-/*
+
+
 io.on('connection', (socket) => {
   console.log('a user connected');
+  
+  //recieves event from kafka consumer and saves it on the db
   socket.on('consumerDataEvent', async (msg) => {
     console.log('new event', msg);
     const dbClient = await getMongoClient();
@@ -24,7 +26,7 @@ io.on('connection', (socket) => {
     const data =  await bigDataDb.collection("apidata").insertOne(JSON.parse(msg));
   });
 });
-*/
+
 
 
 server.listen(3000, async () => {

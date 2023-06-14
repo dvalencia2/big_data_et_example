@@ -3,12 +3,12 @@ const { readConfigFile } = require("./helper");
 const config = readConfigFile("creds.txt");
 config["group.id"] = "node-group";
 
-//io configs are for next week
-//var io = require("socket.io-client");
 
-//const socket = io("ws://localhost:3000");
+var io = require("socket.io-client");
 
-// send a message to the server
+const socket = io("ws://localhost:3000");
+
+
 
 
 const consumer = new Kafka.KafkaConsumer(config, {"auto.offset.reset": "earliest" });
@@ -23,5 +23,6 @@ consumer.on("ready", () => {
         value: message.value.toString(),
     }
     console.log("Consumed message", JSON.stringify(data));
-    //socket.emit("consumerDataEvent",JSON.stringify(data));
+    // send a message to the socket server
+    socket.emit("consumerDataEvent",JSON.stringify(data));
 });
